@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guhenriq <guhenriq@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 19:39:12 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/05/07 19:39:12 by guhenriq         ###   ########.fr       */
+/*   Created: 2025/05/08 15:41:38 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/05/08 15:41:38 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//Retorna uma substring da string s, começando em start e com no máximo len caracteres.
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char		*substr;
 	size_t		i;

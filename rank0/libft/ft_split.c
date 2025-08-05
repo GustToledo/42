@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guhenriq <guhenriq@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 19:38:33 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/05/07 19:38:33 by guhenriq         ###   ########.fr       */
+/*   Created: 2025/05/08 15:40:50 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/05/08 15:40:50 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//Divide a string s em substrings usando o caractere c como delimitador.
 static int	count_words(char const *s, char c)
 {
 	int	i;
@@ -73,7 +72,8 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	int		j;
 
-	if (!s || !(ptr = ft_calloc(count_words(s, c) + 1, sizeof(char *))))
+	ptr = ft_calloc(count_words(s, c) + 1, sizeof(char *));
+	if (!s || !ptr)
 		return (NULL);
 	i = 0;
 	j = 0;
@@ -93,26 +93,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (ptr);
 }
-/*
-int	main(void)
-{
-	char	**result;
-	int		i;
-
-	result = ft_split("  ola  mundo  42  ", ' ');
-	if (!result)
-	{
-		printf("Erro ao alocar memória\n");
-		return (1);
-	}
-	i = 0;
-	while (result[i])
-	{
-		printf("Palavra %d: %s\n", i, result[i]);
-		free(result[i]);
-		i++;
-	}
-	free(result);
-	return (0);
-}
-*/

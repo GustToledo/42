@@ -3,25 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guhenriq <guhenriq@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 19:38:46 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/05/07 19:38:46 by guhenriq         ###   ########.fr       */
+/*   Created: 2025/05/08 15:41:01 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/05/08 15:41:01 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// Aplica a função f a cada 
-//caractere da string s, passando o índice e o endereço do caractere.
-
-//transformo a string original
-void ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int i;
+	int	i;
 
 	if (!s || !f)
-		return;
+		return ;
 	i = 0;
 	while (s[i])
 	{
@@ -29,20 +25,3 @@ void ft_striteri(char *s, void (*f)(unsigned int, char*))
 		i++;
 	}
 }
-/*
-void	to_uppercase(unsigned int i, char *c)
-{
-	(void)i;
-	*c = toupper(*c);
-}
-
-int	main(void)
-{
-	char str[] = "hello world!";
-
-	printf("Antes: %s\n", str);
-	ft_striteri(str, to_uppercase);
-	printf("Depois: %s\n", str);
-	return (0);
-}
-*/

@@ -29,10 +29,10 @@ int verify_map_elements(char *path)
 
 int count_char(char *path, char target)
 {
-    int fd;
-    char *temp;
-    int count;
-    int i;
+    int		fd;
+    char	*temp;
+    int		count;
+    int		i;
 
     fd = open(path, O_RDONLY);
     if (fd < 0)
@@ -42,7 +42,7 @@ int count_char(char *path, char target)
     while (temp)
     {
         i = 0;
-        while (temp[i] && temp[i != '\n'])
+        while (temp[i] && temp[i] != '\n')
         {
             if (temp[i] == target)
                 count++;
@@ -53,4 +53,22 @@ int count_char(char *path, char target)
     }
     close(fd);
     return (count);
+}
+
+int is_rectangular(char **map)
+{
+    int i;
+    int len;
+
+    if (!map || !map[0])
+        return (0);
+    len = ft_strlen(map[0]);
+    i = 1;
+    while (map[i])
+    {
+        if (ft_strlen(map[0]) != len)
+            return (0);
+        i++;
+    }
+    return (1);
 }

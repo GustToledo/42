@@ -3,23 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guhenriq <guhenriq@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 19:39:09 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/05/07 19:39:09 by guhenriq         ###   ########.fr       */
+/*   Created: 2025/05/08 15:41:34 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/05/08 15:41:34 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//Remove os caracteres de set do início e do fim da string s1.
-
-//remove todos os caracteres do início e do fim de uma string que estão presentes em um conjunto (set)
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char *str;
-	int i;
-	int f;
+	char	*str;
+	int		i;
+	int		f;
 
 	if (!s1 || !set)
 		return (NULL);
@@ -34,21 +31,3 @@ char *ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	return (str);
 }
-/*
-int main(void)
-{
-	char *s1 = "+++Hello World!!++";
-	char *set = "+!";
-	char *result = ft_strtrim(s1, set);
-
-	if (result)
-	{
-		printf("Resultado: '%s'\n", result); // Esperado: 'Hello World'
-		free(result);
-	}
-	else
-		printf("Erro ao alocar memória.\n");
-
-	return 0;
-}
-*/

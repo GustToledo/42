@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guhenriq <guhenriq@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 19:38:59 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/05/07 19:38:59 by guhenriq         ###   ########.fr       */
+/*   Created: 2025/05/08 15:41:04 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/05/08 15:41:04 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//Concatena duas strings s1 e s2 em uma nova string.
 static void	copy_strings(char *dest, const char *s1, const char *s2)
 {
 	int	i;
@@ -47,17 +46,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	copy_strings(str, s1, s2);
 	return (str);
 }
-/*
-int main(void)
-{
-	char *result = ft_strjoin("Hello, ", "world!");
-	if (result)
-	{
-		printf("Resultado: %s\n", result);
-		free(result); // libera a memória alocada
-	}
-	else
-		printf("Erro ao alocar memória.\n");
-	return 0;
-}
-*/

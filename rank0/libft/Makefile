@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: guhenriq <guhenriq@student.42malaga.com    +#+  +:+       +#+         #
+#    By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/05/07 19:39:16 by guhenriq          #+#    #+#              #
-#    Updated: 2025/05/07 19:39:16 by guhenriq         ###   ########.fr        #
+#    Created: 2025/05/08 15:41:53 by guhenriq          #+#    #+#              #
+#    Updated: 2025/05/08 15:41:53 by guhenriq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 DEPS = includes
-SRCDIR = .
 OBJDIR = obj
 
 SRCS = \
@@ -30,7 +29,7 @@ SRCS = \
 	ft_memcpy.c ft_strjoin.c ft_toupper.c \
 	ft_memmove.c ft_strlcat.c
 
-OBJS = $(SRCS:%.c=%.o)
+OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 
 NAME = libft.a
 
@@ -39,14 +38,14 @@ all: $(NAME)
 $(OBJDIR)/%.o: %.c | $(OBJDIR)
 	$(CC) $(CFLAGS) -I $(DEPS) -c $< -o $@
 
-#$(OBJDIR):
-#	mkdir -p $(OBJDIR)
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(OBJDIR)
 
 fclean: clean
 	rm -f $(NAME)

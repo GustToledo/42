@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guhenriq <guhenriq@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 19:37:55 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/05/07 19:37:55 by guhenriq         ###   ########.fr       */
+/*   Created: 2025/05/08 15:39:51 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/05/08 15:39:51 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//Converte uma string para um número inteiro (int).
 int	ft_atoi(const char *str)
 {
 	int	i;
@@ -37,16 +36,3 @@ int	ft_atoi(const char *str)
 	}
 	return (res * sign);
 }
-/*
-int main()
-{
-	printf("%d\n", ft_atoi("1"));
-	printf("%d\n", ft_atoi("++1"));
-	printf("%d\n", ft_atoi("--1"));
-	printf("%d\n", ft_atoi("0"));
-	printf("%d\n", ft_atoi("+42lyon"));
-	printf("%d\n", ft_atoi("+101"));
-	printf("%d\n", ft_atoi("2147483647"));
-	printf("%d\n", ft_atoi("-2147483648"));
-} 
-*/

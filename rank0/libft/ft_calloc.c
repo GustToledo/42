@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guhenriq <guhenriq@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 19:38:04 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/05/07 19:38:04 by guhenriq         ###   ########.fr       */
+/*   Created: 2025/05/08 15:40:00 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/05/08 15:40:00 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//Aloca memória inicializada com zero para um array de nmemb elementos de size bytes.
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	unsigned char	*ptr;
@@ -32,13 +31,3 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		ptr[i++] = 0;
 	return (ptr);
 }
-
-/*
-int	main()
-{
-	printf("%d\n", ft_calloc(0, 0));
-	printf("%d\n", calloc(0, 0));
-	printf("%p\n", ft_calloc(0, 0));
-	printf("%p\n", calloc(0, 0));
-}
-*/

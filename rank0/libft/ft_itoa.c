@@ -3,23 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guhenriq <guhenriq@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 19:38:08 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/05/07 19:38:08 by guhenriq         ###   ########.fr       */
+/*   Created: 2025/05/08 15:40:11 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/05/08 15:40:11 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//Converte um número inteiro (int) em uma string.
 static int	count_char(long n)
 {
 	int	count;
 
 	count = 0;
 	if (n <= 0)
-		count++; // Conta o '-' ou o '0'
+		count++;
 	while (n != 0)
 	{
 		n /= 10;
@@ -28,7 +27,7 @@ static int	count_char(long n)
 	return (count);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	long	nbr;
 	int		len;
@@ -54,36 +53,3 @@ char *ft_itoa(int n)
 	}
 	return (str);
 }
-/*
-int main(void)
-{
-	char *str;
-
-	// Teste com 0
-	str = ft_itoa(0);
-	printf("ft_itoa(0) = %s\n", str);
-	free(str);
-
-	// Teste com número positivo
-	str = ft_itoa(12345);
-	printf("ft_itoa(12345) = %s\n", str);
-	free(str);
-
-	// Teste com número negativo
-	str = ft_itoa(-6789);
-	printf("ft_itoa(-6789) = %s\n", str);
-	free(str);
-
-	// Teste com INT_MIN
-	str = ft_itoa(INT_MIN);
-	printf("ft_itoa(INT_MIN) = %s\n", str);
-	free(str);
-
-	// Teste com INT_MAX
-	str = ft_itoa(INT_MAX);
-	printf("ft_itoa(INT_MAX) = %s\n", str);
-	free(str);
-
-	return 0;
-}
-*/

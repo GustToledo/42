@@ -1,0 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/04 18:16:20 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/02/04 18:16:21 by guhenriq         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include <stdio.h>
+
+char *ft_strcpy(char *dest, char *src)
+{
+	int i;
+
+	i = 0;
+	while(src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
+int main(void)
+{
+	char src[] = "ola ola ola0";
+	char dest[50];
+
+	printf("%s\n", src);
+
+	ft_strcpy(dest, src);
+
+	printf("%s\n", dest);
+
+	return 0;
+}
