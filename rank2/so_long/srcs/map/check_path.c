@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_path.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 19:03:23 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2023/02/09 00:20:56 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2025/10/24 20:00:40 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/10/27 17:44:20 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-static char	**blank_grid(t_game *game)
+static char	**blank_grid_alt(t_game *game)
 {
 	int		i;
 	char	**grid;
@@ -20,21 +20,21 @@ static char	**blank_grid(t_game *game)
 	i = 0;
 	grid = ft_calloc((game->map.rows + 1), sizeof(char *));
 	if (!grid)
-		panic(game, MALLOC_ERR);
+		alert(game, MALLOC_ERR);
 	while (i < game->map.rows)
 	{
 		grid[i] = ft_strdup(game->map.map[i]);
 		if (!grid[i])
 		{
 			free_matrix(grid);
-			panic(game, MALLOC_ERR);
+			alert(game, MALLOC_ERR);
 		}
 		i += 1;
 	}
 	return (grid);
 }
 
-static bool	flood_fill(t_map *map, t_point curr, char **sol_grid)
+static bool	flood_fill_alt(t_map *map, t_point curr, char **sol_grid)
 {
 	static int		coins = 0;
 	static bool		found_exit = false;
@@ -46,22 +46,23 @@ static bool	flood_fill(t_map *map, t_point curr, char **sol_grid)
 	else if (sol_grid[curr.y][curr.x] == EXIT)
 		found_exit = true;
 	sol_grid[curr.y][curr.x] = WALL;
-	flood_fill(map, (t_point){curr.x + 1, curr.y}, sol_grid);
-	flood_fill(map, (t_point){curr.x - 1, curr.y}, sol_grid);
-	flood_fill(map, (t_point){curr.x, curr.y + 1}, sol_grid);
-	flood_fill(map, (t_point){curr.x, curr.y - 1}, sol_grid);
+	flood_fill_alt(map, (t_point){curr.x + 1, curr.y}, sol_grid);
+	flood_fill_alt(map, (t_point){curr.x - 1, curr.y}, sol_grid);
+	flood_fill_alt(map, (t_point){curr.x, curr.y + 1}, sol_grid);
+	flood_fill_alt(map, (t_point){curr.x, curr.y - 1}, sol_grid);
 	return (coins == map->collectibles && found_exit);
 }
+// Checks route.
 
-void	check_path(t_game *game)
+void	check_route(t_game *game)
 {
 	char	**sol_grid;
 
-	sol_grid = blank_grid(game);
-	if (!flood_fill(&game->map, game->map.player_pos, sol_grid))
+	sol_grid = blank_grid_alt(game);
+	if (!flood_fill_alt(&game->map, game->map.player_pos, sol_grid))
 	{
 		free_matrix(sol_grid);
-		panic(game, UNACHIEVABLE_ENTITIES);
+		alert(game, UNACHIEVABLE_ENTITIES);
 	}
 	free_matrix(sol_grid);
 }

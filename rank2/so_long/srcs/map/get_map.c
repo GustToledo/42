@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/20 23:15:43 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2023/02/09 00:20:23 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2025/10/24 20:00:46 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/10/27 21:26:11 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static bool	valid_extension(char *map_file)
+static bool	valid_extension_alt(char *map_file)
 {
 	size_t	i;
 
@@ -22,7 +22,7 @@ static bool	valid_extension(char *map_file)
 	return (false);
 }
 
-static void	get_nbr_rows(char *map_file, t_game *game)
+static void	get_nbr_rows_alt(char *map_file, t_game *game)
 {
 	int		counter;
 	int		map_fd;
@@ -31,7 +31,7 @@ static void	get_nbr_rows(char *map_file, t_game *game)
 	counter = 0;
 	map_fd = open(map_file, O_RDONLY);
 	if (map_fd == -1)
-		panic(game, OPEN_MAP_FILE_ERR);
+		alert(game, OPEN_MAP_FILE_ERR);
 	temp = get_next_line(map_fd);
 	while (temp)
 	{
@@ -40,19 +40,19 @@ static void	get_nbr_rows(char *map_file, t_game *game)
 		temp = get_next_line(map_fd);
 	}
 	if (counter == 0)
-		panic(game, EMPTY_MAP_FILE);
+		alert(game, EMPTY_MAP_FILE);
 	game->map.rows = counter;
 	close(map_fd);
 }
 
-static void	get_lines(char *map_file, t_game *game)
+static void	get_lines_alt(char *map_file, t_game *game)
 {
 	int	map_fd;
 	int	i;
 
 	map_fd = open(map_file, O_RDONLY);
 	if (map_fd == -1)
-		panic(game, OPEN_MAP_FILE_ERR);
+		alert(game, OPEN_MAP_FILE_ERR);
 	i = 0;
 	while (i < game->map.rows)
 		game->map.map[i++] = get_next_line(map_fd);
@@ -63,19 +63,19 @@ static void	get_lines(char *map_file, t_game *game)
 	{
 		game->map.map[i] = trim_free(game->map.map[i], "\n");
 		if (!game->map.map[i])
-			panic(game, MALLOC_ERR);
+			alert(game, MALLOC_ERR);
 		i += 1;
 	}
 	game->map.columns = ft_strlen(game->map.map[0]);
 }
 
-void	get_map(char *map_file, t_game *game)
+void	get_layout(char *map_file, t_game *game)
 {
-	if (!valid_extension(map_file))
-		panic(game, INVALID_MAP_FILE);
-	get_nbr_rows(map_file, game);
+	if (!valid_extension_alt(map_file))
+		alert(game, INVALID_MAP_FILE);
+	get_nbr_rows_alt(map_file, game);
 	game->map.map = malloc((game->map.rows + 1) * sizeof(char *));
 	if (!game->map.map)
-		panic(game, MALLOC_ERR);
-	get_lines(map_file, game);
+		alert(game, MALLOC_ERR);
+	get_lines_alt(map_file, game);
 }

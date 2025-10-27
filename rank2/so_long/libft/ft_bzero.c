@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+// Performs ft bzero.
 
 void	ft_bzero(void *s, size_t n)
 {

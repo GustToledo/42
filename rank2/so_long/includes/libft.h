@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/08 15:41:48 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/05/08 15:41:48 by guhenriq         ###   ########.fr       */
+/*   Created: 2025/10/27 17:55:03 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/10/27 17:55:57 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,13 @@
 # include <limits.h>
 # include <stdio.h>
 
-typedef struct s_list {
-	void *content;
-	struct s_list *next;
-} t_list;
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
-bool is_spaces(char c);
+bool	is_spaces(char c);
 
 /* is */
 int		ft_isalnum(int c);
@@ -85,7 +86,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew(void *content);
-int	ft_lstsize(t_list *lst);
+int		ft_lstsize(t_list *lst);
 bool	is_all_digits(char *str);
 bool	is_onstr(const char *str, int ch);
 char	*join_free_both(char *s1, char *s2);
@@ -93,19 +94,19 @@ char	*join_free(char *s1, char *s2);
 char	*join_freev2(char *s1, char *s2);
 size_t	matrix_len(char **matrix);
 bool	only_spaces(const char *str);
-int	prt_hexa(unsigned int nbr, bool upper_case);
-int	prt_int(int n);
-int	prt_ptr(void *ptr_addr);
-int	prt_str(char const *str);
-int	prt_unsigned(unsigned int nbr);
+int		prt_hexa(unsigned int nbr, bool upper_case);
+int		prt_int(int n);
+int		prt_ptr(void *ptr_addr);
+int		prt_str(char const *str);
+int		prt_unsigned(unsigned int nbr);
 bool	streq(char *str1, char *str2);
 char	*trim_free(char *s1, char const *set);
 
 /* ft_printf */
-int	p_char(int c);
-int	p_digit(unsigned long long nbr, int base, char type);
-int	p_format(char type, va_list ap);
-int	ft_printf(const char *str, ...);
+int		p_char(int c);
+int		p_digit(unsigned long long nbr, int base, char type);
+int		p_format(char type, va_list ap);
+int		ft_printf(const char *str, ...);
 
 /* get_next_line */
 char	*ft_strjoin_gnl(char *s1, char *s2);
@@ -114,6 +115,5 @@ char	*get_next_line(int fd);
 char	*read_and_stash(int fd, char *stash);
 char	*extract_line(char *stash);
 char	*clean_stash(char *stash);
-
 
 #endif

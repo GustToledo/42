@@ -3,24 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   matrix_len.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/27 16:21:59 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2023/01/27 16:22:57 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2025/10/24 20:22:16 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/10/24 20:40:20 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t  matrix_len(char **matrix)
+size_t	matrix_len(char **matrix)
 {
-    size_t  i;
+	size_t	i;
 
-    i = 0;
-    if (!matrix)
-        return (0);
-    while (matrix[i])
-        i++;
-    return (i);
+	i = 0;
+	if (!matrix)
+		return (0);
+	while (matrix[i])
+		i++;
+	return (i);
 }
-

@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   render_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/25 21:20:29 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2023/02/08 23:44:42 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2025/10/24 20:01:02 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/10/24 20:09:18 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-static void	check_error_on_xpms(t_game *game)
-{	
+static void	check_error_on_xpms_alt(t_game *game)
+{
 	if (!game->tiles.wall)
-		panic(game, WALL_XPM_ERR);
+		alert(game, WALL_XPM_ERR);
 	if (!game->tiles.floor)
-		panic(game, PLAYER_XPM_ERR);
+		alert(game, PLAYER_XPM_ERR);
 	if (!game->tiles.player)
-		panic(game, PLAYER_XPM_ERR);
+		alert(game, PLAYER_XPM_ERR);
 	if (!game->tiles.collectible)
-		panic(game, COLLECTIBLE_XPM_ERR);
+		alert(game, COLLECTIBLE_XPM_ERR);
 	if (!game->tiles.exit)
-		panic(game, EXIT_XPM_ERR);
+		alert(game, EXIT_XPM_ERR);
 }
 
 static void	open_xpm(t_game *game)
-{	
+{
 	int	img_size;
 
 	img_size = TILE_SIZE;
@@ -41,10 +41,10 @@ static void	open_xpm(t_game *game)
 			COLLECTIBLE_TILE, &img_size, &img_size);
 	game->tiles.exit = mlx_xpm_file_to_image(game->mlx_ptr,
 			EXIT_TILE, &img_size, &img_size);
-	check_error_on_xpms(game);
+	check_error_on_xpms_alt(game);
 }
 
-void	render_tiles(t_game *game)
+void	render_tiles_alt(t_game *game)
 {
 	int		i;
 	int		j;
@@ -69,11 +69,11 @@ void	render_tiles(t_game *game)
 					game->tiles.floor, TILE_SIZE * j, TILE_SIZE * i);
 		}
 	}
-	put_player_tile(game);
+	put_hero_tile(game);
 }
 
-void	render_map(t_game *game)
+void	render_layout(t_game *game)
 {
 	open_xpm(game);
-	render_tiles(game);
+	render_tiles_alt(game);
 }

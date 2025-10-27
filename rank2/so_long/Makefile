@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+         #
+#    By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 23:48:22 by nnuno-ca          #+#    #+#              #
-#    Updated: 2023/02/08 23:43:21 by nnuno-ca         ###   ########.fr        #
+#    Updated: 2025/10/27 20:11:29 by guhenriq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,9 @@ clean:
 fclean: clean
 	$(MAKE) fclean -C ./libft
 	$(RM) $(NAME)
-	
+
+.PHONY: all clean fclean re bonus run
+
 re: fclean all
 
 run: all clean

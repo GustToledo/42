@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 23:48:42 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2023/02/08 23:50:17 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2025/10/24 20:01:36 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/10/24 20:08:24 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 static void	args_check(int argc, char **argv)
 {
 	if (argc != 2)
-		panic(NULL, INVALID_NBR_ARGS);
+		alert(NULL, INVALID_NBR_ARGS);
 	if (*argv[1] == '\0')
-		panic(NULL, NULL_MAP);
+		alert(NULL, NULL_MAP);
 }
 
 int	main(int argc, char **argv)
@@ -26,10 +26,10 @@ int	main(int argc, char **argv)
 
 	args_check(argc, argv);
 	game = init_game();
-	get_map(argv[1], &game);
-	map_check(&game);
+	get_layout(argv[1], &game);
+	map_validate(&game);
 	init_mlx(&game);
-	render_map(&game);
-	hook_n_run(&game);
+	render_layout(&game);
+	hook_n_execute(&game);
 	return (EXIT_SUCCESS);
 }

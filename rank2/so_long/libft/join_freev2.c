@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   join_freev2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/10 18:48:23 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/10 19:01:20 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2025/10/24 20:22:06 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/10/24 20:22:11 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// Returns a string product of s1 + s2 and frees s2
 char	*join_freev2(char *s1, char *s2)
 {
 	size_t	len_s1;

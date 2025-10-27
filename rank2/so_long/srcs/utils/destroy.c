@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   destroy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/28 14:15:42 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2023/02/08 23:59:13 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2025/10/24 20:01:08 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/10/24 20:08:46 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	destroy_tiles(t_game *game)
+void	destroy_tiles_alt(t_game *game)
 {
 	if (game->tiles.wall)
 		mlx_destroy_image(game->mlx_ptr, game->tiles.wall);
@@ -26,11 +26,11 @@ void	destroy_tiles(t_game *game)
 		mlx_destroy_image(game->mlx_ptr, game->tiles.exit);
 }
 
-void	destroy(t_game *game)
+void	cleanup_game(t_game *game)
 {
 	if (!game)
 		return ;
-	destroy_tiles(game);
+	destroy_tiles_alt(game);
 	if (game->win_ptr)
 		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	if (game->mlx_ptr)

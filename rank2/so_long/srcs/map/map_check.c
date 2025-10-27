@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 17:38:12 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2023/02/09 00:15:02 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2025/10/24 20:00:53 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/10/24 20:08:45 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 #define VALID_ENTITIES "ECP01"
 
-static void	throw_error_if(t_game *game)
+static void	throw_error_if_alt(t_game *game)
 {
 	if (game->map.exit == 0 || game->map.exit > 1)
-		panic(game, INVALID_NBR_EXITS);
+		alert(game, INVALID_NBR_EXITS);
 	if (game->map.collectibles == 0)
-		panic(game, NO_COLLECTIBLES);
+		alert(game, NO_COLLECTIBLES);
 	if (game->map.player == 0 || game->map.player > 1)
-		panic(game, INVALID_NBR_PLAYERS);
+		alert(game, INVALID_NBR_PLAYERS);
 }
 
-static void	check_elements(t_game *game)
+static void	check_elements_alt(t_game *game)
 {
 	int	i;
 	int	j;
@@ -36,7 +36,7 @@ static void	check_elements(t_game *game)
 		while (++j < game->map.columns)
 		{
 			if (!is_onstr(VALID_ENTITIES, game->map.map[i][j]))
-				panic(game, INVALID_ENTITY);
+				alert(game, INVALID_ENTITY);
 			if (game->map.map[i][j] == EXIT)
 				game->map.exit += 1;
 			else if (game->map.map[i][j] == COLLECTIBLE)
@@ -48,10 +48,10 @@ static void	check_elements(t_game *game)
 			}
 		}
 	}
-	throw_error_if(game);
+	throw_error_if_alt(game);
 }
 
-static bool	is_closed(t_map *map)
+static bool	is_closed_alt(t_map *map)
 {
 	int	i;
 
@@ -66,7 +66,7 @@ static bool	is_closed(t_map *map)
 	return (true);
 }
 
-static bool	valid_form(t_game *game)
+static bool	valid_form_alt(t_game *game)
 {
 	size_t	len;
 	size_t	i;
@@ -82,12 +82,12 @@ static bool	valid_form(t_game *game)
 	return (true);
 }
 
-void	map_check(t_game *game)
+void	map_validate(t_game *game)
 {
-	if (!valid_form(game))
-		panic(game, INVALID_FORMAT);
-	check_elements(game);
-	if (!is_closed(&game->map))
-		panic(game, MAP_NOT_CLOSED);
-	check_path(game);
+	if (!valid_form_alt(game))
+		alert(game, INVALID_FORMAT);
+	check_elements_alt(game);
+	if (!is_closed_alt(&game->map))
+		alert(game, MAP_NOT_CLOSED);
+	check_route(game);
 }

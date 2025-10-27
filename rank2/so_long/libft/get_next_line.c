@@ -3,19 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guhenriq <guhenriq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 16:28:49 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/10/22 19:45:21 by guhenriq         ###   ########.fr       */
+/*   Updated: 2025/10/24 20:42:05 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 #ifndef BUFFER_SIZE
-#define BUFFER_SIZE 1024
+# define BUFFER_SIZE 1024
 #endif
-
 
 char	*get_next_line(int fd)
 {

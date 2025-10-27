@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 23:24:00 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2023/02/08 23:54:34 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2025/10/24 20:01:31 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/10/27 19:05:48 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	put_player_tile(t_game *game)
+void	put_hero_tile(t_game *game)
 {
 	char	*moves_str;
 
@@ -22,11 +22,11 @@ void	put_player_tile(t_game *game)
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
 		game->tiles.wall, 0, 0);
 	moves_str = ft_itoa(game->moves);
-	mlx_string_put(game->mlx_ptr, game->win_ptr, 32, 10, 1, moves_str);
+	mlx_string_put(game->mlx_ptr, game->win_ptr, 32, 10, 0xFFFF00, moves_str);
 	free(moves_str);
 }
 
-static void	which_tile(t_game *game)
+static void	which_tile_alt(t_game *game)
 {
 	if (game->map.map[game->map.player_pos.y]
 		[game->map.player_pos.x] == COLLECTIBLE)
@@ -40,12 +40,11 @@ static void	which_tile(t_game *game)
 		&& game->map.collectibles == 0)
 	{
 		ft_printf(WIN_MSG);
-		quit_game(game);
+		quit_game_alt(game);
 	}
 }
 
-/* Overloads the player tile that is left behind when the player moves */
-static void	update_left_behind_tile(t_game *game)
+static void	update_left_behind_tile_alt(t_game *game)
 {
 	if (game->map.map[game->map.player_pos.y]
 		[game->map.player_pos.x] == EXIT)
@@ -62,14 +61,14 @@ static void	update_left_behind_tile(t_game *game)
 			TILE_SIZE * game->map.player_pos.y);
 }
 
-void	update_player_pos(t_game *game, bool horizontal, int length)
+void	update_hero_pos(t_game *game, bool horizontal, int length)
 {
 	if (horizontal)
 	{
 		if (game->map.map[game->map.player_pos.y]
 			[game->map.player_pos.x + length] == WALL)
 			return ;
-		update_left_behind_tile(game);
+		update_left_behind_tile_alt(game);
 		game->map.player_pos.x += length;
 	}
 	else
@@ -77,9 +76,9 @@ void	update_player_pos(t_game *game, bool horizontal, int length)
 		if (game->map.map[game->map.player_pos.y + length]
 			[game->map.player_pos.x] == WALL)
 			return ;
-		update_left_behind_tile(game);
+		update_left_behind_tile_alt(game);
 		game->map.player_pos.y += length;
 	}
-	which_tile(game);
-	put_player_tile(game);
+	which_tile_alt(game);
+	put_hero_tile(game);
 }

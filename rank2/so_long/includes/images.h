@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tiles.h                                            :+:      :+:    :+:   */
+/*   images.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 18:38:04 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2023/01/28 13:54:57 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2025/10/27 17:54:14 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/10/27 18:58:14 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@
 # define COLLECTIBLE_TILE "./assets/coin.xpm"
 # define EXIT_TILE "./assets/exit.xpm"
 
-# define TILE_SIZE 64
+# define TILE_SIZE 50
 
 #endif

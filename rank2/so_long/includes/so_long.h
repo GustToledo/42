@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/19 00:20:43 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2023/02/09 00:30:12 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2025/10/27 17:55:11 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/10/27 17:57:49 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include "libft.h"
-# include "tiles.h"
+# include "images.h"
 # include "keys.h"
 # include "error_messages.h"
 # include "../mlx/mlx.h"
@@ -32,12 +32,14 @@
 
 # define WIN_MSG "You won, that's all folks!\n"
 
-typedef struct s_point {
+typedef struct s_point
+{
 	int	x;
 	int	y;
 }				t_point;
 
-typedef struct s_map {
+typedef struct s_map
+{
 	char			**map;
 	int				rows;
 	int				columns;
@@ -47,7 +49,8 @@ typedef struct s_map {
 	t_point			player_pos;
 }				t_map;
 
-typedef struct s_tiles {
+typedef struct s_tiles
+{
 	void	*wall;
 	void	*floor;
 	void	*player;
@@ -55,7 +58,8 @@ typedef struct s_tiles {
 	void	*exit;
 }				t_tiles;
 
-typedef struct s_game {
+typedef struct s_game
+{
 	t_map		map;
 	void		*mlx_ptr;
 	void		*win_ptr;
@@ -82,33 +86,33 @@ static inline t_game	init_game(void)
 }
 
 /* Parses and saves the given map */
-void	get_map(char *map_file, t_game *game);
+void	get_layout(char *map_file, t_game *game);
 /*	Checks if the map has a valid exit path
 and if all entities are achievable */
-void	check_path(t_game *game);
-void	map_check(t_game *game);
+void	check_route(t_game *game);
+void	map_validate(t_game *game);
 
 /* Initializes mlx and win pointers*/
 void	init_mlx(t_game *game);
 
 /* Renders the respective tiles according to the characters on the map */
-void	render_map(t_game *game);
+void	render_layout(t_game *game);
 
-void	update_player_pos(t_game *game, bool horizontal, int length);
+void	update_hero_pos(t_game *game, bool horizontal, int length);
 /* Renders player tile and moves counter */
-void	put_player_tile(t_game *game);
+void	put_hero_tile(t_game *game);
 
-void	hook_n_run(t_game *game);
+void	hook_n_execute(t_game *game);
 
-int		quit_game(t_game *game);
+int		quit_game_alt(t_game *game);
 
 /* UTILS */
 
-/* Calls destroy() and exits the program on FAILURE */
-void	panic(t_game *game, char *error_msg);
+/* Calls cleanup_game() and exits the program on FAILURE */
+void	alert(t_game *game, char *error_msg);
 
 /* Destroys game ptr and all its inside fields */
-void	destroy(t_game *game);
+void	cleanup_game(t_game *game);
 
 /* Frees matrix ptr and all its inside fields */
 void	free_matrix(char **matrix);

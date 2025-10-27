@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   panic.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/28 14:14:20 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2023/01/28 15:42:27 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2025/10/24 20:01:13 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/10/24 20:08:47 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	panic(t_game *game, char *error_msg)
+void	alert(t_game *game, char *error_msg)
 {
-	destroy(game);
+	cleanup_game(game);
 	ft_putstr_fd("Error: ", STDERR_FILENO);
 	ft_putendl_fd(error_msg, STDERR_FILENO);
 	exit(EXIT_FAILURE);
