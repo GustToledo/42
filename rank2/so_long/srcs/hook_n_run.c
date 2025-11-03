@@ -6,12 +6,13 @@
 /*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 20:01:20 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/10/24 20:08:48 by guhenriq         ###   ########.fr       */
+/*   Updated: 2025/11/03 20:47:15 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
+//ends the game by calling the cleanup function, and exit de program
 int	quit_game_alt(t_game *game)
 {
 	cleanup_game(game);
@@ -19,6 +20,8 @@ int	quit_game_alt(t_game *game)
 	return (EXIT_SUCCESS);
 }
 
+//quits the game if ESC is pressed
+//moves the hero up, down, left, or right depending on the key 
 int	on_press_alt(int key, t_game *game)
 {
 	if (key == ESC)
@@ -34,6 +37,8 @@ int	on_press_alt(int key, t_game *game)
 	return (EXIT_SUCCESS);
 }
 
+//sets up event hooks to handle keyboard and window close events,
+//and starts the main MiniLibX loop
 void	hook_n_execute(t_game *game)
 {
 	mlx_hook(game->win_ptr, KEYPRESS_EVENT, (1L << 0), on_press_alt, game);

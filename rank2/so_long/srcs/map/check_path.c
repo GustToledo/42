@@ -6,12 +6,13 @@
 /*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 20:00:40 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/10/27 17:44:20 by guhenriq         ###   ########.fr       */
+/*   Updated: 2025/11/03 19:05:50 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
+//creates a duplicate of the current map grid for path validation
 static char	**blank_grid_alt(t_game *game)
 {
 	int		i;
@@ -34,6 +35,7 @@ static char	**blank_grid_alt(t_game *game)
 	return (grid);
 }
 
+//recursive flood fill algorithm that checks if all collectibles and the exit are reachable
 static bool	flood_fill_alt(t_map *map, t_point curr, char **sol_grid)
 {
 	static int		coins = 0;
@@ -52,8 +54,8 @@ static bool	flood_fill_alt(t_map *map, t_point curr, char **sol_grid)
 	flood_fill_alt(map, (t_point){curr.x, curr.y - 1}, sol_grid);
 	return (coins == map->collectibles && found_exit);
 }
-// Checks route.
 
+//validates that every collectible and the exit can be reached from the players start position
 void	check_route(t_game *game)
 {
 	char	**sol_grid;

@@ -6,12 +6,13 @@
 /*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 20:01:13 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/10/24 20:08:47 by guhenriq         ###   ########.fr       */
+/*   Updated: 2025/11/03 19:58:47 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+//displays an error message, frees all allocated resources, and terminates the program
 void	alert(t_game *game, char *error_msg)
 {
 	cleanup_game(game);

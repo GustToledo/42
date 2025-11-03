@@ -6,12 +6,13 @@
 /*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 20:01:31 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/10/27 19:05:48 by guhenriq         ###   ########.fr       */
+/*   Updated: 2025/11/03 20:52:24 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+//updates the hero's tile on screen and displays the move count
 void	put_hero_tile(t_game *game)
 {
 	char	*moves_str;
@@ -26,6 +27,7 @@ void	put_hero_tile(t_game *game)
 	free(moves_str);
 }
 
+//checks the hero’s current tile: collects items or ends the game at exit
 static void	which_tile_alt(t_game *game)
 {
 	if (game->map.map[game->map.player_pos.y]
@@ -44,6 +46,7 @@ static void	which_tile_alt(t_game *game)
 	}
 }
 
+//updates the tile left behind by the hero (exit or floor)
 static void	update_left_behind_tile_alt(t_game *game)
 {
 	if (game->map.map[game->map.player_pos.y]
@@ -61,6 +64,7 @@ static void	update_left_behind_tile_alt(t_game *game)
 			TILE_SIZE * game->map.player_pos.y);
 }
 
+//moves the hero on the map, avoids walls, and updates tiles and counters
 void	update_hero_pos(t_game *game, bool horizontal, int length)
 {
 	if (horizontal)

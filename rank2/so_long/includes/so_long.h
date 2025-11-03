@@ -6,7 +6,7 @@
 /*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:55:11 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/10/27 17:57:49 by guhenriq         ###   ########.fr       */
+/*   Updated: 2025/11/03 18:39:59 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,16 @@
 # define KEYPRESS_EVENT 2
 # define DESTROY_NOTIFY_EVENT 17
 
-# define WIN_MSG "You won, that's all folks!\n"
+# define WIN_MSG "You won !!!\n"
 
+//structure that represents a coordinate on the map
 typedef struct s_point
 {
 	int	x;
 	int	y;
 }				t_point;
 
+//structure that stores all map information 
 typedef struct s_map
 {
 	char			**map;
@@ -49,6 +51,7 @@ typedef struct s_map
 	t_point			player_pos;
 }				t_map;
 
+//structure that stores image pointers used in the game  
 typedef struct s_tiles
 {
 	void	*wall;
@@ -58,6 +61,7 @@ typedef struct s_tiles
 	void	*exit;
 }				t_tiles;
 
+//main game structure containing the map, images, mlx pointers, and move counter
 typedef struct s_game
 {
 	t_map		map;
@@ -67,6 +71,7 @@ typedef struct s_game
 	int			moves;
 }				t_game;
 
+//function that initializes the t_game structure with default values, -1 for the counter
 static inline t_game	init_game(void)
 {
 	return ((t_game){
@@ -85,21 +90,22 @@ static inline t_game	init_game(void)
 	});
 }
 
-/* Parses and saves the given map */
+//parses and saves the given map
 void	get_layout(char *map_file, t_game *game);
-/*	Checks if the map has a valid exit path
-and if all entities are achievable */
+
+//checks if the map has a valid exit path
+//and if all entities are achievable
 void	check_route(t_game *game);
 void	map_validate(t_game *game);
 
-/* Initializes mlx and win pointers*/
+//initializes mlx and win pointers
 void	init_mlx(t_game *game);
 
-/* Renders the respective tiles according to the characters on the map */
+//renders the respective tiles according to the characters on the map
 void	render_layout(t_game *game);
 
 void	update_hero_pos(t_game *game, bool horizontal, int length);
-/* Renders player tile and moves counter */
+//renders player tile and moves counter
 void	put_hero_tile(t_game *game);
 
 void	hook_n_execute(t_game *game);
@@ -108,13 +114,13 @@ int		quit_game_alt(t_game *game);
 
 /* UTILS */
 
-/* Calls cleanup_game() and exits the program on FAILURE */
+//calls cleanup_game() and exits the program on FAILURE
 void	alert(t_game *game, char *error_msg);
 
-/* Destroys game ptr and all its inside fields */
+//destroys game ptr and all its inside fields
 void	cleanup_game(t_game *game);
 
-/* Frees matrix ptr and all its inside fields */
+//frees matrix ptr and all its inside fields
 void	free_matrix(char **matrix);
 
 #endif

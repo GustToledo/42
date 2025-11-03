@@ -6,12 +6,13 @@
 /*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 20:01:02 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/10/24 20:09:18 by guhenriq         ###   ########.fr       */
+/*   Updated: 2025/11/03 19:53:31 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
+//checks if all XPM texture files were loaded successfully
 static void	check_error_on_xpms_alt(t_game *game)
 {
 	if (!game->tiles.wall)
@@ -26,6 +27,7 @@ static void	check_error_on_xpms_alt(t_game *game)
 		alert(game, EXIT_XPM_ERR);
 }
 
+//loads all XPM image files and assigns them to the corresponding tile textures
 static void	open_xpm(t_game *game)
 {
 	int	img_size;
@@ -44,6 +46,8 @@ static void	open_xpm(t_game *game)
 	check_error_on_xpms_alt(game);
 }
 
+// Draws the entire map tile by tile according to the layout data
+// Each character in the map is translated into the corresponding image on the screen
 void	render_tiles_alt(t_game *game)
 {
 	int		i;
@@ -72,6 +76,7 @@ void	render_tiles_alt(t_game *game)
 	put_hero_tile(game);
 }
 
+//initializes all textures and renders the full map on screen
 void	render_layout(t_game *game)
 {
 	open_xpm(game);
