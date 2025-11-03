@@ -6,7 +6,7 @@
 /*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 20:01:02 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/11/03 19:53:31 by guhenriq         ###   ########.fr       */
+/*   Updated: 2025/11/03 21:00:05 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ static void	open_xpm(t_game *game)
 	check_error_on_xpms_alt(game);
 }
 
-// Draws the entire map tile by tile according to the layout data
-// Each character in the map is translated into the corresponding image on the screen
+//draws the entire map tile by tile according to the layout data
+//each character in the map is translated into image on the screen
 void	render_tiles_alt(t_game *game)
 {
 	int		i;

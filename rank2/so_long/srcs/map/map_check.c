@@ -6,7 +6,7 @@
 /*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 20:00:53 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/11/03 19:37:34 by guhenriq         ###   ########.fr       */
+/*   Updated: 2025/11/03 21:03:11 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 #define VALID_ENTITIES "ECP01"
 
-//checks if the map file contains the correct number of exits, collectibles, and player spawns
+//checks if the map file contains the correct number 
+//of exits, collectibles, and player spawns
 static void	throw_error_if_alt(t_game *game)
 {
 	if (game->map.exit == 0 || game->map.exit > 1)
@@ -26,7 +27,8 @@ static void	throw_error_if_alt(t_game *game)
 }
 
 //scans every cell of the map to count entities and validate characters
-//it ensures only valid symbols exist and records player position and counts of items
+//it ensures only valid symbols exist and
+//records player position and counts of items
 static void	check_elements_alt(t_game *game)
 {
 	int	i;
@@ -87,7 +89,8 @@ static bool	valid_form_alt(t_game *game)
 	return (true);
 }
 
-//performs full map validation in order: format, entities, wall enclosure, and reachable route
+//performs full map validation in order:
+//format, entities, wall enclosure, and reachable route
 void	map_validate(t_game *game)
 {
 	if (!valid_form_alt(game))

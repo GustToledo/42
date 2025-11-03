@@ -6,7 +6,7 @@
 /*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:55:11 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/11/03 18:39:59 by guhenriq         ###   ########.fr       */
+/*   Updated: 2025/11/03 21:04:52 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ typedef struct s_game
 	int			moves;
 }				t_game;
 
-//function that initializes the t_game structure with default values, -1 for the counter
+//function that initializes the t_game structure with default values,
+//-1 for the counter
 static inline t_game	init_game(void)
 {
 	return ((t_game){
@@ -101,7 +102,8 @@ void	map_validate(t_game *game);
 //initializes mlx and win pointers
 void	init_mlx(t_game *game);
 
-//renders the respective tiles according to the characters on the map
+//renders the respective tiles according
+//to the characters on the map
 void	render_layout(t_game *game);
 
 void	update_hero_pos(t_game *game, bool horizontal, int length);

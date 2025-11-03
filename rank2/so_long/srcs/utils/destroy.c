@@ -6,7 +6,7 @@
 /*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 20:01:08 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/11/03 19:56:12 by guhenriq         ###   ########.fr       */
+/*   Updated: 2025/11/03 21:03:24 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	destroy_tiles_alt(t_game *game)
 		mlx_destroy_image(game->mlx_ptr, game->tiles.exit);
 }
 
-//safely frees all allocated resources (textures, window, display, and map memory)
+//safely frees all allocated resources
+//(textures, window, display, and map memory)
 void	cleanup_game(t_game *game)
 {
 	if (!game)

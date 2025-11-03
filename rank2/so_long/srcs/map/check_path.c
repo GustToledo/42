@@ -6,7 +6,7 @@
 /*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 20:00:40 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/11/03 19:05:50 by guhenriq         ###   ########.fr       */
+/*   Updated: 2025/11/03 21:00:57 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static char	**blank_grid_alt(t_game *game)
 	return (grid);
 }
 
-//recursive flood fill algorithm that checks if all collectibles and the exit are reachable
+//recursive flood fill algorithm that checks if all collectibles and the exit
 static bool	flood_fill_alt(t_map *map, t_point curr, char **sol_grid)
 {
 	static int		coins = 0;
@@ -55,7 +55,7 @@ static bool	flood_fill_alt(t_map *map, t_point curr, char **sol_grid)
 	return (coins == map->collectibles && found_exit);
 }
 
-//validates that every collectible and the exit can be reached from the players start position
+//validates that every collectible and the exit can be reached
 void	check_route(t_game *game)
 {
 	char	**sol_grid;
