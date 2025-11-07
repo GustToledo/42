@@ -6,11 +6,11 @@
 /*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 20:01:02 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/11/03 21:00:05 by guhenriq         ###   ########.fr       */
+/*   Updated: 2025/11/06 18:48:45 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 //checks if all XPM texture files were loaded successfully
 static void	check_error_on_xpms_alt(t_game *game)

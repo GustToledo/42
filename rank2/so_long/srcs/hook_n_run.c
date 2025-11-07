@@ -6,11 +6,11 @@
 /*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 20:01:20 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/11/03 20:47:15 by guhenriq         ###   ########.fr       */
+/*   Updated: 2025/11/06 18:48:52 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 //ends the game by calling the cleanup function, and exit de program
 int	quit_game_alt(t_game *game)

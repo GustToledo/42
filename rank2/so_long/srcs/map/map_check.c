@@ -6,11 +6,11 @@
 /*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 20:00:53 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/11/03 21:03:11 by guhenriq         ###   ########.fr       */
+/*   Updated: 2025/11/06 18:48:41 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "so_long.h"
 
 #define VALID_ENTITIES "ECP01"
 

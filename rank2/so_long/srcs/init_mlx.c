@@ -6,11 +6,11 @@
 /*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 20:01:25 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/11/03 20:49:07 by guhenriq         ###   ########.fr       */
+/*   Updated: 2025/11/06 18:48:58 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 //initializes MiniLibX and creates the game window; shows error if it fails
 void	init_mlx(t_game *game)

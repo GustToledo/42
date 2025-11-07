@@ -6,11 +6,11 @@
 /*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 20:00:40 by guhenriq          #+#    #+#             */
-/*   Updated: 2025/11/03 21:00:57 by guhenriq         ###   ########.fr       */
+/*   Updated: 2025/11/06 18:48:37 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "so_long.h"
 
 //creates a duplicate of the current map grid for path validation
 static char	**blank_grid_alt(t_game *game)
