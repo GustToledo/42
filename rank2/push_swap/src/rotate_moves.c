@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_moves.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/05 22:54:56 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/05/08 09:48:35 by wcorrea-         ###   ########.fr       */
+/*   Created: 2025/11/25 17:57:49 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/11/27 11:45:01 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Move the last element of the stack to the top (reverse rotate). */
 static void	reverse(t_stack **top)
 {
 	t_stack	*ex_top;
@@ -30,6 +31,7 @@ static void	reverse(t_stack **top)
 	new_bottom->next = NULL;
 }
 
+/* Move the top element of the stack to the bottom (rotate). */
 static void	rotate(t_stack **top)
 {
 	t_stack	*ex_top;
@@ -44,6 +46,7 @@ static void	rotate(t_stack **top)
 	bottom->next = ex_top;
 }
 
+/* Dispatch and print rotate/reverse operations for one or both stacks. */
 void	rotate_move(t_stack **sa, t_stack **sb, char *choice)
 {
 	if (ft_strcmp(choice, "ra") == 0)

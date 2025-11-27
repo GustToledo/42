@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   create_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/04 23:37:57 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/05/07 17:28:15 by wcorrea-         ###   ########.fr       */
+/*   Created: 2025/11/25 17:58:00 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/11/27 11:44:59 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Assign a rank (main_index) to each node according to its value. */
 void	get_main_index(t_stack *sa, int size)
 {
 	t_stack	*a;
@@ -41,6 +42,7 @@ void	get_main_index(t_stack *sa, int size)
 	}
 }
 
+/* Return the number of nodes in the given stack. */
 int	get_stack_size(t_stack *st)
 {
 	int		size;
@@ -56,6 +58,7 @@ int	get_stack_size(t_stack *st)
 	return (size);
 }
 
+/* Allocate and initialize a new stack node with default fields. */
 static t_stack	*new_node(int n)
 {
 	t_stack	*s;
@@ -73,6 +76,7 @@ static t_stack	*new_node(int n)
 	return (s);
 }
 
+/* Append a node to the end of the stack. */
 static void	add_at_end(t_stack **st, t_stack *new)
 {
 	t_stack	*s;
@@ -90,6 +94,7 @@ static void	add_at_end(t_stack **st, t_stack *new)
 	}
 }
 
+/* Build stack A from command-line arguments, validating ranges. */
 t_stack	*create_stack(int ac, char **av)
 {
 	t_stack		*sa;
@@ -101,7 +106,7 @@ t_stack	*create_stack(int ac, char **av)
 	i = 1;
 	while (i < ac)
 	{
-		n = ft_atoi(av[i]);
+		n = ft_atol(av[i]);
 		if (n < INT_MIN || n > INT_MAX)
 			print_error_and_exit(&sa, NULL);
 		if (i == 1)

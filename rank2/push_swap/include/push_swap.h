@@ -3,20 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/04 22:11:02 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/05/07 17:27:09 by wcorrea-         ###   ########.fr       */
+/*   Created: 2025/11/25 17:58:30 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/11/25 17:58:31 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <limits.h>
+# include "libft.h"
 
 typedef struct s_stack
 {
@@ -46,10 +43,7 @@ void		where_fit_in_a(t_stack **sa, t_stack **sb);
 void		get_stack_positions(t_stack **st);
 void		calculate_moves(t_stack **sa, t_stack **sb);
 
-int			ft_strcmp(char *s1, char *s2);
 int			absolute(int n);
-long int	ft_atoi(const char *s);
-void		ft_putstr(char *s);
 void		free_stack(t_stack **st);
 void		print_error_and_exit(t_stack **sa, t_stack **sb);
 

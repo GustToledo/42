@@ -3,24 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/04 22:45:57 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/05/07 12:53:33 by wcorrea-         ###   ########.fr       */
+/*   Created: 2025/11/25 17:57:43 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/11/27 11:45:00 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_putstr(char *s)
-{
-	while (*s)
-	{
-		write(1, &*s, 1);
-		s++;
-	}
-}
-
+/* Free all nodes in the given stack and set pointer to NULL. */
 void	free_stack(t_stack **lst)
 {
 	t_stack	*c;
@@ -36,6 +28,7 @@ void	free_stack(t_stack **lst)
 	*lst = NULL;
 }
 
+/* Print "Error" to stderr, free stacks and exit the program. */
 void	print_error_and_exit(t_stack **a, t_stack **b)
 {
 	if (!a || *a)
@@ -46,32 +39,10 @@ void	print_error_and_exit(t_stack **a, t_stack **b)
 	exit(1);
 }
 
+/* Return the absolute value of an integer. */
 int	absolute(int n)
 {
 	if (n < 0)
 		return (-n);
 	return (n);
-}
-
-long int	ft_atoi(const char *s)
-{
-	long int	r;
-	int			sg;
-
-	r = 0;
-	sg = 1;
-	while (*s == ' ' || (*s >= 9 && *s <= 13))
-		s++;
-	if (*s == '+' || *s == '-')
-	{
-		if (*s == '-')
-			sg = -1;
-		s++;
-	}
-	while (*s >= '0' && *s <= '9')
-	{
-		r = (r * 10) + (*s - '0');
-		s++;
-	}
-	return (sg * r);
 }

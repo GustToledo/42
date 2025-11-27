@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   complex_moves_do.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/07 01:12:37 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/05/07 16:32:05 by wcorrea-         ###   ########.fr       */
+/*   Created: 2025/11/25 17:58:13 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/11/27 11:45:02 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Perform combined reverse rotations while both stacks need reverse moves. */
 static void	reverse_both(t_stack **sa, t_stack **sb, int *mv_a, int *mv_b)
 {
 	while (*mv_a < 0 && *mv_b < 0)
@@ -22,6 +23,7 @@ static void	reverse_both(t_stack **sa, t_stack **sb, int *mv_a, int *mv_b)
 	}
 }
 
+/* Perform combined rotations while both stacks need forward moves. */
 static void	rotate_both(t_stack **sa, t_stack **sb, int *mv_a, int *mv_b)
 {
 	while (*mv_a > 0 && *mv_b > 0)
@@ -32,6 +34,7 @@ static void	rotate_both(t_stack **sa, t_stack **sb, int *mv_a, int *mv_b)
 	}
 }
 
+/* Apply remaining rotations (ra/rra) on stack A until mv_a is zero. */
 static void	rotate_a(t_stack **sa, int *mv_a)
 {
 	while (*mv_a)
@@ -49,6 +52,7 @@ static void	rotate_a(t_stack **sa, int *mv_a)
 	}
 }
 
+/* Apply remaining rotations (rb/rrb) on stack B until mv_b is zero. */
 static void	rotate_b(t_stack **sb, int *mv_b)
 {
 	while (*mv_b)
@@ -66,6 +70,7 @@ static void	rotate_b(t_stack **sb, int *mv_b)
 	}
 }
 
+/* Choose the element in B with minimal total cost and insert it into A. */
 void	less_moves_sort(t_stack **sa, t_stack **sb)
 {
 	t_stack	*b;

@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   basic_moves.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/05 21:36:29 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/05/08 10:46:10 by wcorrea-         ###   ########.fr       */
+/*   Created: 2025/11/25 17:58:22 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/11/27 11:44:58 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Return the largest main_index found in the stack. */
 static int	get_max_index(t_stack *st)
 {
 	int		max_id;
@@ -28,6 +29,7 @@ static int	get_max_index(t_stack *st)
 	return (max_id);
 }
 
+/* Swap the first two nodes' values and main_index in the given stack. */
 static void	swap(t_stack *top)
 {
 	int	tmp;
@@ -38,10 +40,11 @@ static void	swap(t_stack *top)
 	top->n = top->next->n;
 	top->next->n = tmp;
 	tmp = top->main_index;
-	top->main_index = top->next->main_index;	
+	top->main_index = top->next->main_index;
 	top->next->main_index = tmp;
 }
 
+/* Pop the top node from top1 and push it onto top2. */
 static void	push(t_stack **top1, t_stack **top2)
 {
 	t_stack	*tmp;
@@ -54,6 +57,7 @@ static void	push(t_stack **top1, t_stack **top2)
 	*top1 = tmp;
 }
 
+/* Execute a swap/push operation based on the choice string and print it. */
 void	swap_move(t_stack **sa, t_stack **sb, char *choice)
 {
 	if (ft_strcmp(choice, "sa") == 0)
@@ -73,6 +77,7 @@ void	swap_move(t_stack **sa, t_stack **sb, char *choice)
 	ft_putstr("\n");
 }
 
+/* Sort a stack of three elements (or fewer) with minimal moves. */
 void	small_sort(t_stack **st)
 {
 	int	max_id;

@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   complex_moves_prep.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/07 01:08:50 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/05/07 16:53:26 by wcorrea-         ###   ########.fr       */
+/*   Created: 2025/11/25 17:58:10 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/11/27 11:45:02 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Calculate mv_a and mv_b for each node in B, converting positions to moves. */
 void	calculate_moves(t_stack **sa, t_stack **sb)
 {
 	t_stack	*a;
@@ -35,6 +36,7 @@ void	calculate_moves(t_stack **sa, t_stack **sb)
 	}
 }
 
+/* Determine the best position in A where an element from B should be inserted. */
 int	get_a_position(t_stack **sa, int b_index, int max, int a_pos)
 {
 	t_stack	*a;
@@ -64,6 +66,7 @@ int	get_a_position(t_stack **sa, int b_index, int max, int a_pos)
 	return (a_pos);
 }
 
+/* Assign sequential position indices (0..) to each node in the stack. */
 void	get_stack_positions(t_stack **st)
 {
 	t_stack	*s;
@@ -79,6 +82,7 @@ void	get_stack_positions(t_stack **st)
 	}
 }
 
+/* For each element in B, compute and store the index in A where it should fit. */
 void	where_fit_in_a(t_stack **sa, t_stack **sb)
 {
 	t_stack	*b;

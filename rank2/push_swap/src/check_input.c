@@ -3,35 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/04 22:10:58 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/05/06 22:29:24 by wcorrea-         ###   ########.fr       */
+/*   Created: 2025/11/25 17:58:18 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/11/27 11:45:02 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_strcmp(char *s1, char *s2)
-{
-	if (*s1 == '+')
-	{
-		if (*s2 != '+')
-			s1++;
-	}
-	else
-	{
-		if (*s2 == '+')
-			s2++;
-	}
-	while (*s1 == *s2 && *s1)
-	{
-		s1++;
-		s2++;
-	}
-	return (*s1 - *s2);
-}
-
+/* Check whether any argument string appears more than once. */
 static int	is_repeated(char **arg)
 {
 	int	i;
@@ -52,6 +33,7 @@ static int	is_repeated(char **arg)
 	return (0);
 }
 
+/* Validate that the string is a properly formed integer (optional sign + digits). */
 static int	is_valid_number(char *s)
 {
 	if (*s == '+' || *s == '-')
@@ -65,6 +47,7 @@ static int	is_valid_number(char *s)
 	return (1);
 }
 
+/* Strip extra leading zeros from a numeric string, preserving sign. */
 static char	*remove_extra_zeros(char *s)
 {
 	int	i;
@@ -93,6 +76,7 @@ static char	*remove_extra_zeros(char *s)
 	}
 }
 
+/* Validate all argv entries for format, duplicates and non-empty values. */
 int	is_correct_input(char **arg)
 {
 	int	i;

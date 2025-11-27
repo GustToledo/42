@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   complex_moves.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/06 10:53:55 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/05/07 16:53:26 by wcorrea-         ###   ########.fr       */
+/*   Created: 2025/11/25 17:58:06 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/11/27 11:45:01 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Return the position of the node with the smallest main_index in the stack. */
 int	get_lower_position(t_stack **st)
 {
 	t_stack	*s;
@@ -34,6 +35,7 @@ int	get_lower_position(t_stack **st)
 	return (low_position);
 }
 
+/* Rotate stack A so the smallest element ends up at the top with minimal moves. */
 static void	last_rotates(t_stack **sa)
 {
 	int	size;
@@ -53,6 +55,7 @@ static void	last_rotates(t_stack **sa)
 	}
 }
 
+/* Push elements to B to leave three in A, preparing for main sort. */
 static void	push_b_save_3(t_stack **sa, t_stack **sb)
 {
 	int		size;
@@ -81,6 +84,7 @@ static void	push_b_save_3(t_stack **sa, t_stack **sb)
 	small_sort(sa);
 }
 
+/* High-level sorting routine for stacks larger than three elements. */
 void	big_sort(t_stack **sa, t_stack **sb)
 {
 	push_b_save_3(sa, sb);

@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: guhenriq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/04 22:11:07 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/05/07 17:27:09 by wcorrea-         ###   ########.fr       */
+/*   Created: 2025/11/25 17:57:54 by guhenriq          #+#    #+#             */
+/*   Updated: 2025/11/27 11:45:00 by guhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Return 1 if the stack is sorted in ascending order, otherwise 0. */
 int	is_sorted(t_stack *st)
 {
 	t_stack	*s;
@@ -26,6 +27,7 @@ int	is_sorted(t_stack *st)
 	return (1);
 }
 
+/* Choose and run the appropriate sorting routine based on size. */
 static void	push_swap(t_stack **sa, t_stack **sb, int size)
 {
 	if (size == 2 && !is_sorted(*sa))
@@ -36,6 +38,7 @@ static void	push_swap(t_stack **sa, t_stack **sb, int size)
 		big_sort(sa, sb);
 }
 
+/* Program entry: validate input, build stacks, run sorting and cleanup. */
 int	main(int ac, char **av)
 {
 	int		size;
